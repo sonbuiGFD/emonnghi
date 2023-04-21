@@ -22,11 +22,11 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/build', express.static(path.join(__dirname, 'build')));
 
 app.get('/', function (req, res) {
-  res.render('pages/home');
+  res.render('pages/home', {view: 'home'});
 });
 
 app.get('/:page', function (req, res) {
-  res.render('pages/' + req.params.page);
+  res.render('pages/' + req.params.page, {view: req.params.page});
 });
 
 app.listen(PORT, function () {
