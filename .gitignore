@@ -62,6 +62,10 @@ typings/
 
 build/
 
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
 # node.js
 #
 node_modules/

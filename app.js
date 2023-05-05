@@ -1,12 +1,12 @@
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var expressLayouts = require('express-ejs-layouts');
 
 const PORT = process.env.PORT || 3000;
 var app = express();
-app.use(favicon(path.join(__dirname, 'public', '/images/favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', '/images/favicon.ico')));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
