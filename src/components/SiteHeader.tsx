@@ -37,40 +37,30 @@ export default function SiteHeader() {
   };
 
   return (
-    <header
-      className={`
-        fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${
-          isScrolled
-            ? "bg-white/95 backdrop-blur-sm shadow-sm"
-            : "bg-transparent"
-        }
-        lg:sticky lg:top-0 lg:bg-white lg:shadow-none
-      `}
-    >
+    <header className={`header ${isScrolled ? "header__scrolled" : ""}`}>
       <nav
-        className="container-custom py-4 lg:py-6"
+        className="header__nav"
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="flex items-center justify-between">
+        <div className="header__container">
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl lg:text-2xl font-display font-medium text-text-primary hover:opacity-80 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-text-primary focus:ring-offset-2 rounded"
+            className="header__logo"
             aria-label="Emon Portfolio Home"
           >
             emon.
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
+          <div className="header__nav_desktop">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
-                className="nav-link text-sm lg:text-base"
+                className="header__nav_link"
               >
                 {item.name}
               </a>
@@ -78,12 +68,9 @@ export default function SiteHeader() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-text-primary hover:text-text-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-text-primary focus:ring-offset-2 rounded"
-            aria-label="Open mobile menu"
-          >
+          <button className="header__menu_button" aria-label="Open mobile menu">
             <svg
-              className="w-6 h-6"
+              className="header__menu_icon"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -99,14 +86,14 @@ export default function SiteHeader() {
         </div>
 
         {/* Mobile Navigation (would need state management for toggle) */}
-        <div className="md:hidden mt-4 pt-4 border-t border-border-light hidden">
-          <div className="flex flex-col space-y-4">
+        <div className="header__nav_mobile header__nav_mobile_hidden">
+          <div className="header__nav_mobile_list">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
-                className="nav-link text-base py-2"
+                className="header__nav_link header__nav_link_mobile"
               >
                 {item.name}
               </a>

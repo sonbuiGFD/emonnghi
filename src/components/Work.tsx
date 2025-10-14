@@ -13,34 +13,23 @@ function WorkItem({ title, description, category, year, link }: WorkItemProps) {
         href: link,
         target: "_blank",
         rel: "noopener noreferrer",
-        className:
-          "work-item group block hover:bg-gray-50 transition-colors duration-200 rounded-lg p-4 -m-4",
+        className: "work_item work_item__link",
       }
-    : { className: "work-item" };
+    : { className: "work_item" };
 
   return (
     <Wrapper {...wrapperProps}>
-      <div className="flex items-start justify-between gap-4 mb-2">
-        <h3 className="font-semibold text-text-primary text-lg group-hover:text-blue-600 transition-colors duration-200">
-          {title}
-        </h3>
-        {year && (
-          <span className="text-sm text-text-secondary font-medium whitespace-nowrap">
-            {year}
-          </span>
-        )}
+      <div className="work_item__header">
+        <h3 className="work_item__title">{title}</h3>
+        {year && <span className="work_item__year">{year}</span>}
       </div>
-      <p className="text-sm uppercase tracking-wider text-text-secondary font-medium mb-2">
-        {category}
-      </p>
-      <p className="text-text-secondary leading-relaxed text-pretty">
-        {description}
-      </p>
+      <p className="work_item__category">{category}</p>
+      <p className="work_item__description">{description}</p>
       {link && (
-        <div className="mt-3 flex items-center text-blue-600 text-sm font-medium group-hover:text-blue-700 transition-colors duration-200">
+        <div className="work_item__link">
           View Project
           <svg
-            className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+            className="work_item__link_icon"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -132,23 +121,16 @@ export default function Work() {
   ];
 
   return (
-    <section
-      id="work"
-      className="py-16 md:py-24 lg:py-32"
-      aria-labelledby="work-title"
-    >
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20">
+    <section id="work" className="work" aria-labelledby="work-title">
+      <div className="work__container">
+        <div className="work__layout">
           {/* Left Column - Title */}
-          <div className="lg:col-span-4">
-            <div className="lg:sticky lg:top-24">
-              <h2
-                id="work-title"
-                className="font-display text-display-lg text-text-primary mb-6"
-              >
+          <div className="work__sidebar">
+            <div className="work__sidebar-content">
+              <h2 id="work-title" className="work__title">
                 Discover My Works
               </h2>
-              <p className="text-lg text-text-secondary leading-relaxed text-pretty">
+              <p className="work__subtitle">
                 With passion and creativity in work, I specialize in clients who
                 seek unique products, create solutions and design projects
                 optimized for conversions.
@@ -157,41 +139,35 @@ export default function Work() {
           </div>
 
           {/* Right Column - Work Categories */}
-          <div className="lg:col-span-8 space-y-16">
+          <div className="work__content">
             {/* Website Design */}
-            <div>
-              <h3 className="text-xl font-semibold text-text-primary mb-8 uppercase tracking-wide">
-                Website Design
-              </h3>
-              <div className="space-y-6">
+            <div className="work__section">
+              <h3 className="work__section-title">Website Design</h3>
+              <div className="work__section-items">
                 {websiteProjects.map((project, index) => (
                   <WorkItem key={index} {...project} />
                 ))}
               </div>
             </div>
 
-            <hr className="section-divider" />
+            <hr className="work__divider" />
 
             {/* App Design */}
-            <div>
-              <h3 className="text-xl font-semibold text-text-primary mb-8 uppercase tracking-wide">
-                App Design
-              </h3>
-              <div className="space-y-6">
+            <div className="work__section">
+              <h3 className="work__section-title">App Design</h3>
+              <div className="work__section-items">
                 {appProjects.map((project, index) => (
                   <WorkItem key={index} {...project} />
                 ))}
               </div>
             </div>
 
-            <hr className="section-divider" />
+            <hr className="work__divider" />
 
             {/* System Design */}
-            <div>
-              <h3 className="text-xl font-semibold text-text-primary mb-8 uppercase tracking-wide">
-                System Design
-              </h3>
-              <div className="space-y-6">
+            <div className="work__section">
+              <h3 className="work__section-title">System Design</h3>
+              <div className="work__section-items">
                 {systemProjects.map((project, index) => (
                   <WorkItem key={index} {...project} />
                 ))}

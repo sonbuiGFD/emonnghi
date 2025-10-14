@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.scss";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nghiho.com"),
   title: "Nghi Ho - Product Designer",
   description:
     "Product Designer creating digital brand experiences that drive business results through impactful design.",

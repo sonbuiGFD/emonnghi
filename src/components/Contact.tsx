@@ -38,41 +38,32 @@ export default function Contact() {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-16 md:py-24 lg:py-32"
-      aria-labelledby="contact-title"
-    >
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
+    <section id="contact" className="contact" aria-labelledby="contact-title">
+      <div className="contact__container">
+        <div className="contact__layout">
           {/* Left Column - Contact Info */}
-          <div className="order-2 lg:order-1">
-            <div className="space-y-8 lg:space-y-12">
-              <div>
-                <h2
-                  id="contact-title"
-                  className="font-display text-display-lg text-text-primary mb-6 text-balance"
-                >
+          <div className="contact__content">
+            <div className="contact__info">
+              <div className="contact__header">
+                <h2 id="contact-title" className="contact__title">
                   Let&apos;s Get In Touch
                 </h2>
-                <p className="text-lg text-text-secondary leading-relaxed text-pretty max-w-md">
+                <p className="contact__subtitle">
                   Ready to bring your vision to life? I&apos;d love to hear
                   about your project and explore how we can create something
                   amazing together.
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="contact__list">
                 {contactInfo.map((item) => (
-                  <div key={item.label} className="group">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm uppercase tracking-wider text-text-secondary font-medium">
-                        {item.label}
-                      </span>
+                  <div key={item.label} className="contact__item">
+                    <div className="contact__item_header">
+                      <span className="contact__item_label">{item.label}</span>
                       {item.copyable && (
                         <button
                           onClick={() => handleCopy(item.value, item.label)}
-                          className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-text-secondary hover:text-text-primary font-medium"
+                          className="contact__item_copy"
                           aria-label={`Copy ${item.label}`}
                         >
                           {copiedText === item.label ? "Copied!" : "Copy"}
@@ -81,7 +72,7 @@ export default function Contact() {
                     </div>
                     <a
                       href={item.href}
-                      className="text-text-primary hover:text-blue-600 transition-colors duration-200 font-medium text-lg break-all"
+                      className="contact__item_value"
                       target={
                         item.href.startsWith("http") ? "_blank" : undefined
                       }
@@ -97,14 +88,14 @@ export default function Contact() {
                 ))}
               </div>
 
-              <div className="pt-4">
+              <div className="contact__cta">
                 <a
                   href="mailto:nghi.ho@example.com?subject=Project Inquiry&body=Hi Nghi,%0D%0A%0D%0AI'd like to discuss a project with you.%0D%0A%0D%0ABest regards"
-                  className="cta-button"
+                  className="contact__button"
                 >
                   Send Message
                   <svg
-                    className="ml-2 w-4 h-4"
+                    className="contact__button_icon"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -120,20 +111,18 @@ export default function Contact() {
               </div>
 
               {/* Social Links */}
-              <div className="flex items-center space-x-6 pt-6 border-t border-border-light">
-                <span className="text-sm text-text-secondary font-medium">
-                  Follow me
-                </span>
-                <div className="flex items-center space-x-4">
+              <div className="contact__social">
+                <span className="contact__social_label">Follow me</span>
+                <div className="contact__social_links">
                   <a
                     href="https://linkedin.com/in/nghiho"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-text-secondary hover:text-text-primary transition-colors duration-200"
+                    className="contact__social_link"
                     aria-label="LinkedIn Profile"
                   >
                     <svg
-                      className="w-5 h-5"
+                      className="contact__social_icon"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -144,11 +133,11 @@ export default function Contact() {
                     href="https://dribbble.com/nghiho"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-text-secondary hover:text-text-primary transition-colors duration-200"
+                    className="contact__social_link"
                     aria-label="Dribbble Profile"
                   >
                     <svg
-                      className="w-5 h-5"
+                      className="contact__social_icon"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -159,11 +148,11 @@ export default function Contact() {
                     href="https://behance.net/nghiho"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-text-secondary hover:text-text-primary transition-colors duration-200"
+                    className="contact__social_link"
                     aria-label="Behance Profile"
                   >
                     <svg
-                      className="w-5 h-5"
+                      className="contact__social_icon"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -176,14 +165,14 @@ export default function Contact() {
           </div>
 
           {/* Right Column - Illustration */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl">
+          <div className="contact__illustration">
+            <div className="contact__illustration_wrapper">
               <Image
                 src="/contact-illustration.svg"
                 alt="Communication and collaboration illustration showing a person connecting with digital devices and messages"
                 width={400}
                 height={400}
-                className="w-full h-auto"
+                className="contact__illustration_image"
                 loading="lazy"
               />
             </div>

@@ -4,37 +4,32 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer
-      className="py-8 md:py-12 border-t border-border-light"
-      role="contentinfo"
-    >
-      <div className="container-custom">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="footer" role="contentinfo">
+      <div className="footer__container">
+        <div className="footer__header">
           {/* Logo/Brand */}
-          <div className="flex items-center">
-            <span className="text-xl font-display font-medium text-text-primary">
-              emon.
-            </span>
+          <div className="footer__brand">
+            <span className="footer__logo">emon.</span>
           </div>
 
           {/* Copyright */}
-          <div className="text-center md:text-right">
-            <p className="text-text-secondary text-sm">
+          <div className="footer__copyright">
+            <p className="footer__copyright_text">
               © {currentYear} Nghi Ho. All rights reserved.
             </p>
           </div>
         </div>
 
         {/* Additional Footer Content */}
-        <div className="mt-8 pt-8 border-t border-border-light">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-secondary">
-            <p className="text-center md:text-left">
+        <div className="footer__bottom">
+          <div className="footer__bottom_content">
+            <p className="footer__tagline">
               Crafted with passion in Vietnam 🇻🇳
             </p>
-            <div className="flex items-center space-x-6">
+            <div className="footer__nav">
               <a
                 href="#about"
-                className="hover:text-text-primary transition-colors duration-200"
+                className="footer__nav_link"
                 onClick={(e) => {
                   e.preventDefault();
                   document.querySelector("#about")?.scrollIntoView({
@@ -47,7 +42,7 @@ export default function Footer() {
               </a>
               <a
                 href="#work"
-                className="hover:text-text-primary transition-colors duration-200"
+                className="footer__nav_link"
                 onClick={(e) => {
                   e.preventDefault();
                   document.querySelector("#work")?.scrollIntoView({
@@ -60,7 +55,7 @@ export default function Footer() {
               </a>
               <a
                 href="#contact"
-                className="hover:text-text-primary transition-colors duration-200"
+                className="footer__nav_link"
                 onClick={(e) => {
                   e.preventDefault();
                   document.querySelector("#contact")?.scrollIntoView({

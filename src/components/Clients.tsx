@@ -13,30 +13,23 @@ export default function Clients() {
   ];
 
   return (
-    <section
-      id="clients"
-      className="py-16 md:py-24 lg:py-32"
-      aria-labelledby="clients-title"
-    >
-      <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2
-            id="clients-title"
-            className="font-display text-display-md text-text-primary mb-4"
-          >
+    <section id="clients" className="clients" aria-labelledby="clients-title">
+      <div className="clients__container">
+        <div className="clients__header">
+          <h2 id="clients-title" className="clients__title">
             Clients & Partners
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto text-pretty">
+          <p className="clients__subtitle">
             Trusted by leading brands to deliver exceptional digital experiences
             that drive growth and engagement.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16 items-center justify-items-center">
+        <div className="clients__grid">
           {clients.map((client) => (
             <div
               key={client.name}
-              className="client-logo group cursor-pointer"
+              className="clients__logo"
               role="img"
               aria-label={`${client.name} logo`}
             >
@@ -45,7 +38,7 @@ export default function Clients() {
                 alt={`${client.name} company logo`}
                 width={120}
                 height={40}
-                className="h-8 lg:h-10 w-auto transition-all duration-300 group-hover:scale-105"
+                className="clients__logo_image"
                 loading="lazy"
               />
             </div>
@@ -53,29 +46,19 @@ export default function Clients() {
         </div>
 
         {/* Optional testimonial or stats section */}
-        <div className="mt-20 pt-16 border-t border-border-light">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl lg:text-4xl font-display font-semibold text-text-primary mb-2">
-                50+
-              </div>
-              <p className="text-text-secondary font-medium">
-                Projects Completed
-              </p>
+        <div className="clients__stats">
+          <div className="clients__stats_grid">
+            <div className="clients__stat">
+              <div className="clients__stat_number">50+</div>
+              <p className="clients__stat_label">Projects Completed</p>
             </div>
-            <div>
-              <div className="text-3xl lg:text-4xl font-display font-semibold text-text-primary mb-2">
-                8+
-              </div>
-              <p className="text-text-secondary font-medium">
-                Years Experience
-              </p>
+            <div className="clients__stat">
+              <div className="clients__stat_number">8+</div>
+              <p className="clients__stat_label">Years Experience</p>
             </div>
-            <div>
-              <div className="text-3xl lg:text-4xl font-display font-semibold text-text-primary mb-2">
-                15+
-              </div>
-              <p className="text-text-secondary font-medium">Happy Clients</p>
+            <div className="clients__stat">
+              <div className="clients__stat_number">15+</div>
+              <p className="clients__stat_label">Happy Clients</p>
             </div>
           </div>
         </div>

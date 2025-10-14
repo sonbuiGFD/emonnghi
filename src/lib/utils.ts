@@ -23,9 +23,12 @@ export const formatDate = (date: Date): string => {
 };
 
 // Debounce function for performance optimization
-export const debounce = (func: Function, wait: number) => {
+export const debounce = <T extends unknown[]>(
+  func: (...args: T) => void,
+  wait: number
+) => {
   let timeout: NodeJS.Timeout;
-  return function executedFunction(...args: any[]) {
+  return function executedFunction(...args: T) {
     const later = () => {
       clearTimeout(timeout);
       func(...args);

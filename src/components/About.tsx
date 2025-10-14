@@ -14,26 +14,22 @@ function ExperienceItem({
   current,
 }: ExperienceItemProps) {
   return (
-    <div className="experience-item">
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3">
-        <div className="flex-1">
-          <h3 className="font-semibold text-text-primary text-lg">{role}</h3>
-          <p className="text-text-secondary font-medium">{company}</p>
+    <div className="experience_item">
+      <div className="experience_item__header">
+        <div className="experience_item__info">
+          <h3 className="experience_item__role">{role}</h3>
+          <p className="experience_item__company">{company}</p>
         </div>
-        <div className="flex items-center gap-2">
-          <time className="text-sm text-text-secondary font-medium whitespace-nowrap">
-            {period}
-          </time>
+        <div className="experience_item__meta">
+          <time className="experience_item__period">{period}</time>
           {current && (
-            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+            <span className="experience_item__badge experience_item__badge_current">
               Present
             </span>
           )}
         </div>
       </div>
-      <p className="text-text-secondary leading-relaxed text-pretty">
-        {description}
-      </p>
+      <p className="experience_item__description">{description}</p>
     </div>
   );
 }
@@ -79,34 +75,27 @@ export default function About() {
   ];
 
   return (
-    <section
-      id="about"
-      className="py-16 md:py-24 lg:py-32"
-      aria-labelledby="about-title"
-    >
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20">
+    <section id="about" className="about" aria-labelledby="about-title">
+      <div className="about__container">
+        <div className="about__layout">
           {/* Left Column - Title */}
-          <div className="lg:col-span-4">
-            <h2
-              id="about-title"
-              className="font-display text-display-lg text-text-primary sticky top-24"
-            >
+          <div className="about__sidebar">
+            <h2 id="about-title" className="about__title">
               Something About Me
             </h2>
           </div>
 
           {/* Right Column - Content */}
-          <div className="lg:col-span-8 space-y-12">
+          <div className="about__content">
             {/* Bio */}
-            <div className="prose prose-lg max-w-none">
-              <p className="text-lg text-text-secondary leading-extra-relaxed text-pretty">
+            <div className="about__bio">
+              <p className="about__bio-text">
                 Hi, I&apos;m a creative UI/UX Designer with focus design on
                 original ideas and a strong background. With a years experience,
                 I&apos;m passionate about every project I worked on - that
                 evolving to learn and always improving my skills.
               </p>
-              <p className="text-lg text-text-secondary leading-extra-relaxed text-pretty mt-6">
+              <p className="about__bio-text">
                 I believe in creating thoughtful, accessible designs that solve
                 real problems and deliver meaningful experiences. My approach
                 combines strategic thinking with creative execution to drive
@@ -115,11 +104,9 @@ export default function About() {
             </div>
 
             {/* Experience Section */}
-            <div>
-              <h3 className="text-xl font-semibold text-text-primary mb-8 uppercase tracking-wide">
-                Experience
-              </h3>
-              <div className="space-y-0">
+            <div className="about__section">
+              <h3 className="about__section-title">Experience</h3>
+              <div className="about__experience-list">
                 {experiences.map((exp, index) => (
                   <ExperienceItem key={index} {...exp} />
                 ))}
@@ -127,23 +114,17 @@ export default function About() {
             </div>
 
             {/* Education Section */}
-            <div>
-              <h3 className="text-xl font-semibold text-text-primary mb-8 uppercase tracking-wide">
-                Education
-              </h3>
-              <div className="experience-item border-b-0 pb-0">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3">
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-text-primary text-lg">
-                      Graphic Design
-                    </h4>
-                    <p className="text-text-secondary font-medium">FPT Arena</p>
+            <div className="about__section">
+              <h3 className="about__section-title">Education</h3>
+              <div className="experience_item experience_item__education">
+                <div className="experience_item__header">
+                  <div className="experience_item__info">
+                    <h4 className="experience_item__role">Graphic Design</h4>
+                    <p className="experience_item__company">FPT Arena</p>
                   </div>
-                  <time className="text-sm text-text-secondary font-medium whitespace-nowrap">
-                    2016 - 2018
-                  </time>
+                  <time className="experience_item__period">2016 - 2018</time>
                 </div>
-                <p className="text-text-secondary leading-relaxed">
+                <p className="experience_item__description">
                   Comprehensive program covering design fundamentals,
                   typography, color theory, and digital design tools with focus
                   on user-centered design principles.
