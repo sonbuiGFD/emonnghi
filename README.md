@@ -123,5 +123,3 @@ Update CSS variables in `src/styles/globals.scss`:
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
-
-**Happy coding! 🚀**
