@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
+import { Be_Vietnam_Pro } from "next/font/google";
+import localFont from "next/font/local";
 import "@/styles/globals.scss";
+
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const NY_Font = localFont({
+  src: "../../public/fonts/MRCH_NewYork.ttf",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://emonnghi.vercel.app"),
@@ -50,6 +62,24 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/icons/safari-pinned-tab.svg",
+        color: "#333333",
+      },
+    ],
+  },
+  manifest: "/icons/site.webmanifest",
+  other: {
+    "msapplication-TileColor": "#333333",
+  },
 };
 
 export default function RootLayout({
@@ -59,7 +89,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-body text-text-primary bg-bg-white antialiased">
+      <head>
+        <meta name="theme-color" content="#212121" />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+            :root {
+                --font-mrch-newyork: ${NY_Font.style.fontFamily}, serif;
+                --font-be-vietnam-pro: ${beVietnamPro.style.fontFamily}, sans-serif;
+            }
+          `,
+          }}
+        ></style>
+      </head>
+      <body
+        className={`${beVietnamPro.className} text-text-primary bg-bg-white antialiased`}
+      >
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-text-primary focus:text-white focus:rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-text-primary"

@@ -31,9 +31,9 @@ const config: Config = {
         serif: ["var(--font-mrch-newyork)", "Georgia", "Times", "serif"],
       },
       colors: {
-        "text-primary": "#1a1a1a",
-        "text-secondary": "#666666",
-        "border-light": "#eaeaea",
+        "text-primary": "#212121",
+        "text-secondary": "#212121",
+        "border-light": "#212121",
         "bg-white": "#ffffff",
       },
       spacing: {
