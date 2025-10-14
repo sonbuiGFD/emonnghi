@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.scss";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nghiho.com"),
+  metadataBase: new URL("https://emonnghi.vercel.app"),
   title: "Nghi Ho - Product Designer",
   description:
     "Product Designer creating digital brand experiences that drive business results through impactful design.",
@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     title: "Nghi Ho - Product Designer",
     description:
       "Product Designer creating digital brand experiences that drive business results through impactful design.",
-    url: "https://nghiho.com",
+    url: "https://emonnghi.vercel.app",
     siteName: "Nghi Ho Portfolio",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Nghi Ho - Product Designer",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: "Nghi Ho - Product Designer",
     description:
       "Product Designer creating digital brand experiences that drive business results through impactful design.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -59,13 +59,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-      </head>
       <body className="font-body text-text-primary bg-bg-white antialiased">
         <a
           href="#main-content"

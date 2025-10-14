@@ -89,7 +89,7 @@ public/
 ├── hero-illustration.svg   # Hero section illustration
 ├── contact-illustration.svg # Contact section illustration
 ├── logo-*.svg             # Client logo assets
-└── og-image.jpg           # Social media preview image
+└── og-image.png           # Social media preview image
 ```
 
 ## ⚡ Available Scripts
