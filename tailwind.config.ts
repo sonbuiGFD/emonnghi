@@ -19,22 +19,12 @@ const config: Config = {
           "Roboto",
           "sans-serif",
         ],
-        sans: [
-          "var(--font-be-vietnam-pro)",
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "sans-serif",
-        ],
         serif: ["var(--font-mrch-newyork)", "Georgia", "Times", "serif"],
       },
       colors: {
         "text-primary": "#212121",
         "text-secondary": "#212121",
         "border-light": "#212121",
-        "bg-white": "#ffffff",
       },
       spacing: {
         "18": "4.5rem",

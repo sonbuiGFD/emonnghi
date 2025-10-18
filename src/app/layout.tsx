@@ -103,7 +103,7 @@ export default function RootLayout({
         ></style>
       </head>
       <body
-        className={`${beVietnamPro.className} text-text-primary bg-bg-white antialiased`}
+        className={`${beVietnamPro.className} font-body bg-white text-text-primary dark:bg-black dark:text-white transition-colors duration-300`}
       >
         <a
           href="#main-content"
