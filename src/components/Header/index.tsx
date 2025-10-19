@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import s from './styles.module.scss';
+import s from './style.module.scss';
 import Logo from '@public/svgs/logo.svg';
 
 const navigation = [

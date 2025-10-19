@@ -1,0 +1,131 @@
+@import 'tailwindcss';
+
+@utility container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tailwind v4 CSS-based Theme Configuration */
+@theme {
+  /* Custom Colors */
+  --color-primary: #212121;
+  --color-secondary: #212121;
+  --color-border-light: #212121;
+
+  /* Custom Spacing */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-120: 30rem;
+
+  /* Font Families */
+  --font-family-display: var(--font-mrch-newyork), Georgia, Times, serif;
+  --font-family-body: var(--font-be-vietnam-pro), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Letter Spacing */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+
+  /* Line Height */
+  --line-height-extra-relaxed: 1.75;
+  --line-height-super-relaxed: 1.8;
+
+  /* Max Width */
+  --max-width-container: 1440px;
+  --max-width-content: 1200px;
+}
+
+// Typography refinements
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings:
+      'kern' 1,
+      'liga' 1;
+    font-size: 16px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-family: var(--font-mrch-newyork);
+    color: var(--color-primary);
+  }
+
+  // Custom font families
+  .font-display {
+    font-family: var(--font-mrch-newyork);
+    letter-spacing: -0.025em;
+  }
+
+  .font-body {
+    font-family: var(--font-be-vietnam-pro);
+  }
+
+  // Display typography
+  .text-display-xl {
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    font-weight: 400;
+  }
+
+  .text-display-lg {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+  }
+
+  .text-display-md {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+}
+
+// Custom component styles
+@layer components {
+  .section-divider {
+    height: 1px;
+    background-color: #eaeaea;
+    border: none;
+  }
+}
+
+// Utility classes
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}

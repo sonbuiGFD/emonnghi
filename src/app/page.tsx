@@ -1,14 +1,15 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Clients from "@/components/Clients";
-import Work from "@/components/Work";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Header from '@/components/Header';
+
+import Hero from '@/container/Home/Hero';
+import About from '@/container/Home/About';
+import Clients from '@/container/Home/Clients';
+import Work from '@/container/Home/Work';
+import Contact from '@/container/Home/Contact';
+import Footer from '@/container/Home/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-[100px]">
       <Header />
       <main id="main-content">
         <Hero />

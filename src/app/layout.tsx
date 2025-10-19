@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Be_Vietnam_Pro } from 'next/font/google';
 import localFont from 'next/font/local';
-import '@/styles/globals.scss';
+import '@/styles/globals.css';
 
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ['latin'],
@@ -81,7 +81,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${beVietnamPro.className} font-body bg-white text-text-primary dark:bg-black dark:text-white transition-colors duration-300`}
+        className={`${beVietnamPro.className} font-body bg-white text-text-primary transition-colors duration-300`}
         style={
           {
             '--font-mrch-newyork': `${NY_Font.style.fontFamily}, serif`,
