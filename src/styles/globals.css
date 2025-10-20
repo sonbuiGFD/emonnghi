@@ -1,11 +1,5 @@
 @import 'tailwindcss';
 
-@utility container {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* Tailwind v4 CSS-based Theme Configuration */
 @theme {
   /* Custom Colors */
@@ -58,7 +52,7 @@
   }
 
   body {
-    font-family: var(--font-mrch-newyork);
+    font-family: var(--font-be-vietnam-pro);
     color: var(--color-primary);
   }
 
@@ -95,13 +89,11 @@
   }
 }
 
-// Custom component styles
-@layer components {
-  .section-divider {
-    height: 1px;
-    background-color: #eaeaea;
-    border: none;
-  }
+/* Custom container utility - overrides Tailwind's default */
+@utility container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Utility classes

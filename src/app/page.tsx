@@ -14,16 +14,16 @@ export default function Home() {
       <main id="main-content">
         <Hero />
 
-        <hr className="section-divider" />
+        <hr className="h-px bg-[#eaeaea] border-0 max-w-[1280px] mx-auto" />
         <About />
 
-        <hr className="section-divider" />
+        <hr className="h-px bg-[#eaeaea] border-0 max-w-[1280px] mx-auto" />
         <Clients />
 
-        <hr className="section-divider" />
+        <hr className="h-px bg-[#eaeaea] border-0 max-w-[1280px] mx-auto" />
         <Work />
 
-        <hr className="section-divider" />
+        <hr className="h-px bg-[#eaeaea] border-0 max-w-[1280px] mx-auto" />
         <Contact />
       </main>
 

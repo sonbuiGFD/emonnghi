@@ -7,7 +7,7 @@ import './style.scss';
 export default function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <div className="hero__container">
+      <div className="hero__container container">
         <div className="hero__layout">
           {/* Left Column - Text Content */}
           <div className="hero__content">
