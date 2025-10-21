@@ -189,12 +189,12 @@
 		}
 
 		&__stats_grid {
-			grid-template-columns: 1fr;
-			gap: rem(30);
+			grid-template-columns: repeat(3, 1fr);
+			gap: rem(20);
 		}
 
 		&__stat_number {
-			font-size: rem(36);
+			font-size: rem(32);
 		}
 
 		&__stat_label {

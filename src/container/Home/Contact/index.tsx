@@ -80,10 +80,8 @@ export default function Contact() {
               </div>
 
               <div className="contact__cta">
-                <a
-                  href="mailto:nghiho2497@gmail.com?subject=Project Inquiry&body=Hi Nghi,%0D%0A%0D%0AI'd like to discuss a project with you.%0D%0A%0D%0ABest regards"
-                  className="contact__button">
-                  Send Message
+                <a href="https://calendly.com/nghiho2497/30min" className="contact__button" target="_blank" rel="noopener noreferrer">
+                  Schedule a call
                   <svg className="contact__button_icon w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
@@ -109,7 +107,7 @@ export default function Contact() {
                     </svg>
                   </a>
                   <a
-                    href="https://dribbble.com/nghiho"
+                    href="https://dribbble.com/Emonnghi"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact__social_link"
@@ -128,7 +126,7 @@ export default function Contact() {
                     </svg>
                   </a>
                   <a
-                    href="https://behance.net/nghiho"
+                    href="https://www.behance.net/nghiho24972cdb"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact__social_link"

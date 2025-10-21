@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import s from './style.module.scss';
 import Logo from '@public/svgs/logo.svg';
@@ -14,13 +14,30 @@ const navigation = [
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      setIsScrolled(currentScrollY > 50);
+      
+      if (currentScrollY > 300) {
+        if (currentScrollY > lastScrollY.current) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+        }
+      } else {
+        setIsVisible(true);
+      }
+      
+      lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -36,7 +53,7 @@ function Header() {
   };
 
   return (
-    <header className={`${s.header} ${isScrolled ? s.header__scrolled : ''}`}>
+    <header className={`${s.header} ${isScrolled ? s.header__scrolled : ''} ${!isVisible ? s.header__hidden : ''}`}>
       <nav className={s.header__nav} role="navigation" aria-label="Main navigation">
         <div className={`${s.header__container} container`}>
           <Link href="/" className={s.header__logo} aria-label="Emon Portfolio Home">
@@ -50,14 +67,14 @@ function Header() {
               </a>
             ))}
           </div>
-          <button className={s.header__menu_button} aria-label="Open mobile menu">
+          <button className={s.header__menu_button} aria-label="Open mobile menu" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <svg className={s.header__menu_icon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
 
-        <div className={`${s.header__nav_mobile} ${s.header__nav_mobile_hidden}`}>
+        <div className={`${s.header__nav_mobile} ${isMobileMenuOpen ? '' : s.header__nav_mobile_hidden}`}>
           <div className={s.header__nav_mobile_list}>
             {navigation.map((item) => (
               <a
