@@ -1,0 +1,295 @@
+@use '@/styles/mixins.scss' as *;
+@use '@/styles/vars.scss' as *;
+
+.about {
+	padding: rem(120) 0;
+	background-color: #ffffff;
+
+	&__layout {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: rem(120);
+	}
+
+	// Left sidebar with title
+	&__sidebar {
+		position: relative;
+	}
+
+	&__title {
+		font-family: var(--font-mrch-newyork);
+		font-size: rem(80);
+		font-weight: 300;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		color: $primary_color;
+		margin-bottom: rem(20);
+	}
+
+	&__info {
+		position: sticky;
+		top: rem(200);
+	}
+
+	// Right content area
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: rem(80);
+	}
+
+	// Bio section
+	&__bio {
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+	}
+
+	&__bio-text {
+		font-size: rem(16);
+		line-height: 1.6;
+		color: #666666;
+		margin: 0;
+
+		&:first-child {
+			color: $primary_color;
+		}
+	}
+
+	// Section containers
+	&__section {
+		display: flex;
+		flex-direction: column;
+		gap: rem(32);
+	}
+
+	&__section-title {
+		font-size: rem(12);
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: #999999;
+		margin: 0;
+		padding-bottom: rem(16);
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	// Experience list
+	&__experience-list {
+		display: flex;
+		flex-direction: column;
+		gap: rem(48);
+	}
+}
+
+// Experience Item Component
+.experience_item {
+	display: flex;
+	flex-direction: column;
+	gap: rem(12);
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: rem(24);
+	}
+
+	&__info {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: rem(4);
+	}
+
+	&__role {
+		font-size: rem(18);
+		font-weight: 600;
+		line-height: 1.4;
+		color: $primary_color;
+		margin: 0;
+	}
+
+	&__company {
+		font-size: rem(14);
+		line-height: 1.5;
+		color: #666666;
+		margin: 0;
+	}
+
+	&__meta {
+		display: flex;
+		align-items: center;
+		gap: rem(12);
+		flex-shrink: 0;
+	}
+
+	&__period {
+		font-size: rem(14);
+		line-height: 1.5;
+		color: #999999;
+		white-space: nowrap;
+	}
+
+	&__badge {
+		padding: rem(4) rem(12);
+		font-size: rem(12);
+		font-weight: 500;
+		border-radius: rem(12);
+
+		&_current {
+			background-color: #f5f5f5;
+			color: $primary_color;
+		}
+	}
+
+	&__description {
+		font-size: rem(14);
+		line-height: 1.6;
+		color: #666666;
+		margin: 0;
+	}
+
+	// Education variant
+	&__education {
+		.experience_item__role {
+			font-size: rem(16);
+		}
+	}
+}
+
+// Responsive styles - all grouped together at the bottom
+@include max-xl {
+	.about {
+		&__layout {
+			gap: rem(80);
+		}
+
+		&__title {
+			font-size: rem(64);
+		}
+	}
+}
+
+@include max-lg {
+	.about {
+		padding: rem(80) 0;
+
+		&__layout {
+			gap: rem(60);
+		}
+
+		&__title {
+			font-size: rem(56);
+		}
+
+		&__content {
+			gap: rem(60);
+		}
+
+		&__experience-list {
+			gap: rem(40);
+		}
+	}
+}
+
+@include max-md {
+	.about {
+		padding: rem(60) 0;
+
+		&__container {
+			padding: 0 rem(20);
+		}
+
+		&__layout {
+			grid-template-columns: 1fr;
+			gap: rem(40);
+		}
+
+		&__sidebar {
+			position: relative;
+		}
+
+		&__title {
+			font-size: rem(48);
+			position: relative;
+			top: auto;
+		}
+
+		&__content {
+			gap: rem(48);
+		}
+
+		&__section {
+			gap: rem(24);
+		}
+
+		&__experience-list {
+			gap: rem(32);
+		}
+	}
+
+	.experience_item {
+		&__header {
+			flex-direction: column;
+			gap: rem(8);
+		}
+
+		&__meta {
+			width: 100%;
+			justify-content: space-between;
+		}
+
+		&__period {
+			white-space: normal;
+		}
+	}
+}
+
+@include max-sm {
+	.about {
+		padding: rem(48) 0;
+
+		&__container {
+			padding: 0 rem(16);
+		}
+
+		&__layout {
+			gap: rem(32);
+		}
+
+		&__title {
+			font-size: rem(40);
+		}
+
+		&__content {
+			gap: rem(40);
+		}
+
+		&__bio-text {
+			font-size: rem(15);
+		}
+
+		&__section {
+			gap: rem(20);
+		}
+
+		&__experience-list {
+			gap: rem(28);
+		}
+	}
+
+	.experience_item {
+		gap: rem(10);
+
+		&__role {
+			font-size: rem(16);
+		}
+
+		&__company,
+		&__period,
+		&__description {
+			font-size: rem(13);
+		}
+	}
+}

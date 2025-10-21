@@ -1,36 +1,12 @@
-interface ExperienceItemProps {
-  company: string;
-  role: string;
-  period: string;
-  description: string;
-  current?: boolean;
-}
-
-function ExperienceItem({ company, role, period, description, current }: ExperienceItemProps) {
-  return (
-    <div className="experience_item">
-      <div className="experience_item__header">
-        <div className="experience_item__info">
-          <h3 className="experience_item__role">{role}</h3>
-          <p className="experience_item__company">{company}</p>
-        </div>
-        <div className="experience_item__meta">
-          <time className="experience_item__period">{period}</time>
-          {current && <span className="experience_item__badge experience_item__badge_current">Present</span>}
-        </div>
-      </div>
-      <p className="experience_item__description">{description}</p>
-    </div>
-  );
-}
+import ExperienceItem from './ExperienceItem';
+import './style.scss';
 
 export default function About() {
   const experiences = [
     {
       company: 'DSV',
       role: 'Product Designer',
-      period: 'Dec 2023',
-      current: true,
+      period: 'Dec 2023 - Present',
       description:
         'Focused on creating comprehensive design systems and user experience improvements that boost customer satisfaction in the global logistics industry.',
     },
@@ -66,29 +42,31 @@ export default function About() {
 
   return (
     <section id="about" className="about" aria-labelledby="about-title">
-      <div className="about__container">
+      <div className="about__container container">
         <div className="about__layout">
           {/* Left Column - Title */}
           <div className="about__sidebar">
-            <h2 id="about-title" className="about__title">
-              Something About Me
-            </h2>
+            <div className="about__info">
+              <h2 id="about-title" className="about__title">
+                Something About Me
+              </h2>
+
+              {/* Bio */}
+              <div className="about__bio">
+                <p className="about__bio-text">
+                  Hi, I&apos;m a creative UI/UX Designer with focus design on original ideas and a strong background. With a years experience,
+                  I&apos;m passionate about every project I worked on - that evolving to learn and always improving my skills.
+                </p>
+                <p className="about__bio-text">
+                  I believe in creating thoughtful, accessible designs that solve real problems and deliver meaningful experiences. My approach
+                  combines strategic thinking with creative execution to drive business results.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Right Column - Content */}
           <div className="about__content">
-            {/* Bio */}
-            <div className="about__bio">
-              <p className="about__bio-text">
-                Hi, I&apos;m a creative UI/UX Designer with focus design on original ideas and a strong background. With a years experience, I&apos;m
-                passionate about every project I worked on - that evolving to learn and always improving my skills.
-              </p>
-              <p className="about__bio-text">
-                I believe in creating thoughtful, accessible designs that solve real problems and deliver meaningful experiences. My approach combines
-                strategic thinking with creative execution to drive business results.
-              </p>
-            </div>
-
             {/* Experience Section */}
             <div className="about__section">
               <h3 className="about__section-title">Experience</h3>
