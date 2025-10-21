@@ -5,7 +5,7 @@ import About from '@/container/Home/About';
 import Clients from '@/container/Home/Clients';
 import Work from '@/container/Home/Work';
 import Contact from '@/container/Home/Contact';
-import Footer from '@/container/Home/Footer';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (

@@ -14,7 +14,7 @@
 
 	&__title {
 		font-family: var(--font-mrch-newyork);
-		font-size: rem(72);
+		font-size: rem(80);
 		line-height: 1.1;
 		font-weight: 300;
 		color: $primary_color;
@@ -32,7 +32,7 @@
 	&__grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: rem(60) rem(80);
+		gap: rem(20);
 		align-items: center;
 	}
 
@@ -40,7 +40,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: rem(20);
 		transition: transform 0.3s ease, opacity 0.3s ease;
 		opacity: 0.7;
 
@@ -101,7 +100,7 @@
 @include min-lg {
 	.clients {
 		&__content {
-			grid-template-columns: rem(400) 1fr;
+			grid-template-columns: 1fr 1fr;
 			gap: rem(120);
 		}
 	}

@@ -1,16 +1,33 @@
 import Image from 'next/image';
 import './style.scss';
 
+import client_logo__1 from '@public/clients/client_logo__1.png';
+import client_logo__2 from '@public/clients/client_logo__2.png';
+import client_logo__3 from '@public/clients/client_logo__3.png';
+import client_logo__4 from '@public/clients/client_logo__4.svg?url';
+import client_logo__5 from '@public/clients/client_logo__5.png';
+import client_logo__6 from '@public/clients/client_logo__6.png';
+import client_logo__7 from '@public/clients/client_logo__7.png';
+import client_logo__8 from '@public/clients/client_logo__8.png';
+import client_logo__9 from '@public/clients/client_logo__9.png';
+import client_logo__10 from '@public/clients/client_logo__10.svg?url';
+import client_logo__11 from '@public/clients/client_logo__11.png';
+import client_logo__12 from '@public/clients/client_logo__12.svg?url';
+
 export default function Clients() {
   const clients = [
-    { name: 'Kraft Heinz', logo: '/logo-kraft-heinz.svg' },
-    { name: 'Novaland', logo: '/logo-novaland.svg' },
-    { name: 'Viettel', logo: '/logo-viettel.svg' },
-    { name: 'Grab', logo: '/logo-grab.svg' },
-    { name: 'MoMo', logo: '/logo-momo.svg' },
-    { name: 'Aeon', logo: '/logo-aeon.svg' },
-    { name: 'Faraday', logo: '/logo-faraday.svg' },
-    { name: 'Rellet', logo: '/logo-rellet.svg' },
+    { name: 'Kraft Heinz', logo: client_logo__1 },
+    { name: 'Novaland', logo: client_logo__2 },
+    { name: 'Viettel', logo: client_logo__3 },
+    { name: '25fit', logo: client_logo__4 },
+    { name: 'MoMo', logo: client_logo__5 },
+    { name: 'Aeon', logo: client_logo__6 },
+    { name: 'Grab', logo: client_logo__7 },
+    { name: 'Havang', logo: client_logo__8 },
+    { name: 'Rollot', logo: client_logo__9 },
+    { name: 'Pharaday', logo: client_logo__10 },
+    { name: 'Rellet', logo: client_logo__11 },
+    { name: 'VietGap', logo: client_logo__12 },
   ];
 
   return (
