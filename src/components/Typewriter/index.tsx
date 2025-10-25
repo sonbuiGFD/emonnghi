@@ -26,7 +26,7 @@ export function Typewriter({ texts, className = '' }: { texts: string[]; classNa
         if (isCancelled) break;
 
         // Pause after typing
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 300));
 
         if (isCancelled) break;
 

@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'motion/react';
 import ExperienceItem from './ExperienceItem';
 import './style.scss';
 
@@ -40,19 +43,83 @@ export default function About() {
     },
   ];
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const sidebarVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1] as const,
+      },
+    },
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1] as const,
+      },
+    },
+  };
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.1, 0.25, 1] as const,
+      },
+    },
+  };
+
   return (
     <section id="about" className="about" aria-labelledby="about-title">
       <div className="about__container container">
-        <div className="about__layout">
+        <motion.div
+          className="about__layout"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={containerVariants}>
           {/* Left Column - Title */}
-          <div className="about__sidebar">
+          <motion.div className="about__sidebar" variants={sidebarVariants}>
             <div className="about__info">
-              <h2 id="about-title" className="about__title">
+              <motion.h2
+                id="about-title"
+                className="about__title"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] as const }}>
                 Something About Me
-              </h2>
+              </motion.h2>
 
               {/* Bio */}
-              <div className="about__bio">
+              <motion.div
+                className="about__bio"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}>
                 <p className="about__bio-text">
                   Hi, I&apos;m a creative UI/UX Designer with focus design on original ideas and a strong background. With a years experience,
                   I&apos;m passionate about every project I worked on - that evolving to learn and always improving my skills.
@@ -61,26 +128,41 @@ export default function About() {
                   I believe in creating thoughtful, accessible designs that solve real problems and deliver meaningful experiences. My approach
                   combines strategic thinking with creative execution to drive business results.
                 </p>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Content */}
-          <div className="about__content">
+          <motion.div className="about__content" variants={contentVariants}>
             {/* Experience Section */}
-            <div className="about__section">
+            <motion.div
+              className="about__section"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={sectionVariants}>
               <h3 className="about__section-title">Experience</h3>
               <div className="about__experience-list">
                 {experiences.map((exp, index) => (
                   <ExperienceItem key={index} {...exp} />
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Education Section */}
-            <div className="about__section">
+            <motion.div
+              className="about__section"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={sectionVariants}>
               <h3 className="about__section-title">Education</h3>
-              <div className="experience_item experience_item__education">
+              <motion.div
+                className="experience_item experience_item__education"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
                 <div className="experience_item__header">
                   <div className="experience_item__info">
                     <h4 className="experience_item__role">Graphic Design</h4>
@@ -92,10 +174,10 @@ export default function About() {
                   Comprehensive program covering design fundamentals, typography, color theory, and digital design tools with focus on user-centered
                   design principles.
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

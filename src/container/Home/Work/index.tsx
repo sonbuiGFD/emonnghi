@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'motion/react';
 import WorkItem from './WorkItem';
 import './style.scss';
 
@@ -49,55 +52,138 @@ export default function Work() {
     },
   ];
 
+  // Animation variants
+  const sidebarVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1] as const,
+      },
+    },
+  };
+
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const sectionTitleVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1] as const,
+      },
+    },
+  };
+
+  const itemsContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
     <section id="work" className="work" aria-labelledby="work-title">
       <div className="work__container container">
         <div className="work__layout">
           {/* Left Column - Title */}
-          <div className="work__sidebar">
+          <motion.div
+            className="work__sidebar"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={sidebarVariants}>
             <div className="work__sidebar-content">
-              <h2 id="work-title" className="work__title">
+              <motion.h2
+                id="work-title"
+                className="work__title"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] as const }}>
                 Discover My Works
-              </h2>
-              <p className="work__subtitle">
+              </motion.h2>
+              <motion.p
+                className="work__subtitle"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] as const }}>
                 With passion and creativity in work, I partner with clients to define problems, create solutions and design products.
                 <br />
                 Here are some projects I&apos;ve done
-              </p>
+              </motion.p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Work Categories */}
           <div className="work__content">
             {/* Website Design */}
-            <div className="work__section">
-              <h3 className="work__section-title">Website Design</h3>
-              <div className="work__section-items">
+            <motion.div
+              className="work__section"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-100px' }}
+              variants={sectionVariants}>
+              <motion.h3 className="work__section-title" variants={sectionTitleVariants}>
+                Website Design
+              </motion.h3>
+              <motion.div className="work__section-items" variants={itemsContainerVariants}>
                 {websiteProjects.map((project, index) => (
                   <WorkItem key={index} {...project} />
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* App Design */}
-            <div className="work__section">
-              <h3 className="work__section-title">App Design</h3>
-              <div className="work__section-items">
+            <motion.div
+              className="work__section"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-100px' }}
+              variants={sectionVariants}>
+              <motion.h3 className="work__section-title" variants={sectionTitleVariants}>
+                App Design
+              </motion.h3>
+              <motion.div className="work__section-items" variants={itemsContainerVariants}>
                 {appProjects.map((project, index) => (
                   <WorkItem key={index} {...project} />
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* System Design */}
-            <div className="work__section">
-              <h3 className="work__section-title">System Design</h3>
-              <div className="work__section-items">
+            <motion.div
+              className="work__section"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-100px' }}
+              variants={sectionVariants}>
+              <motion.h3 className="work__section-title" variants={sectionTitleVariants}>
+                System Design
+              </motion.h3>
+              <motion.div className="work__section-items" variants={itemsContainerVariants}>
                 {systemProjects.map((project, index) => (
                   <WorkItem key={index} {...project} />
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -79,14 +79,10 @@
 		cursor: pointer;
 		padding: 4px 8px;
 		border-radius: 4px;
-		transition: all 0.2s ease;
+		transition: background-color 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
 
 		&:hover {
 			background-color: #f5f5f5;
-		}
-
-		&:active {
-			transform: scale(0.95);
 		}
 	}
 
@@ -95,7 +91,7 @@
 		font-weight: 400;
 		color: $primary_color;
 		text-decoration: none;
-		transition: color 0.2s ease;
+		transition: color 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
 		display: inline-block;
 
 		&:hover {
@@ -118,29 +114,21 @@
 		padding: 16px 32px;
 		border-radius: 8px;
 		text-decoration: none;
-		transition: all 0.3s ease;
+		transition: background-color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+			color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+			box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 		border: 2px solid $primary_color;
 
 		&:hover {
 			background-color: transparent;
 			color: $primary_color;
-			transform: translateY(-2px);
 			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-		}
-
-		&:active {
-			transform: translateY(0);
 		}
 	}
 
 	&__button_icon {
 		width: 20px;
 		height: 20px;
-		transition: transform 0.3s ease;
-
-		.contact__button:hover & {
-			transform: translateX(4px);
-		}
 	}
 
 	&__social {
@@ -173,13 +161,13 @@
 		background-color: #f5f5f5;
 		border-radius: 50%;
 		color: $primary_color;
-		transition: all 0.3s ease;
+		transition: background-color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+			color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 		text-decoration: none;
 
 		&:hover {
 			background-color: $primary_color;
 			color: #ffffff;
-			transform: translateY(-2px);
 		}
 	}
 
@@ -203,6 +191,7 @@
 		width: 100%;
 		height: auto;
 		display: block;
+		filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.1));
 	}
 }
 

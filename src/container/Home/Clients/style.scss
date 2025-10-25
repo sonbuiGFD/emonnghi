@@ -55,7 +55,7 @@
 		max-width: 100%;
 		object-fit: contain;
 		filter: grayscale(100%);
-		transition: filter 0.3s ease;
+		transition: filter 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 
 		&:hover {
 			filter: grayscale(0%);
@@ -76,6 +76,7 @@
 
 	&__stat {
 		text-align: center;
+		position: relative;
 	}
 
 	&__stat_number {
@@ -85,6 +86,8 @@
 		color: $primary_color;
 		margin-bottom: rem(12);
 		letter-spacing: -0.02em;
+		font-variant-numeric: tabular-nums;
+		line-height: 1.2;
 	}
 
 	&__stat_label {
